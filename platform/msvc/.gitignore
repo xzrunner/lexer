@@ -1,0 +1,5 @@
+lexer/
+projects/*
+
+!projects/lexer.vcxproj
+!projects/lexer.vcxproj.filters
