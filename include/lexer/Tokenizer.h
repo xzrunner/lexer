@@ -330,7 +330,7 @@ protected:
         return CurPos();
     }
 
-    const char* readWhile(const std::string& allow) {
+    const char* ReadWhile(const std::string& allow) {
 		while (!Eof() && IsAnyOf(CurChar(), allow)) {
 			Advance();
 		}
