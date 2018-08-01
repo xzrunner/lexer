@@ -5,6 +5,7 @@
 #include "lexer/Token.h"
 
 #include <stack>
+#include <memory>
 
 namespace lexer
 {
