@@ -4,6 +4,8 @@
 
 #include <string>
 
+#include <assert.h>
+
 namespace lexer
 {
 

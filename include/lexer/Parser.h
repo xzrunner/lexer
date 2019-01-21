@@ -6,6 +6,7 @@
 #include "lexer/Exception.h"
 
 #include <map>
+#include <vector>
 #include <sstream>
 
 namespace lexer
