@@ -151,6 +151,12 @@ public:
         return NextToken();
     }
 
+    void SkipToken(const TokenType skipTokens = ~0u) {
+        if (PeekToken().HasType(skipTokens)) {
+            NextToken();
+        }
+    }
+
     std::string ReadRemainder(const TokenType delimiter_type)
 	{
         if (Eof())
