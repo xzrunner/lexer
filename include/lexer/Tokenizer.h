@@ -163,11 +163,11 @@ public:
             return "";
 
         Token token = PeekToken();
-        const char* start_pos = std::begin(token);
+        const char* start_pos = token.Begin();
         const char* end_pos = start_pos;
         do {
             token = NextToken();
-            end_pos = std::end(token);
+            end_pos = token.End();
         } while (PeekToken().HasType(delimiter_type) == 0 && !Eof());
 
         return std::string(start_pos, static_cast<size_t>(end_pos - start_pos));
