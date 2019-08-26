@@ -1,5 +1,3 @@
-// Code from https://github.com/kduske/TrenchBroom
-
 #pragma once
 
 #include "lexer/Token.h"
