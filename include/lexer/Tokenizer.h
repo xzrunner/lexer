@@ -202,6 +202,10 @@ public:
     bool Eof() const {
         return m_state->Eof();
     }
+    bool Eof(const char* ptr) const {
+        return m_state->Eof(ptr);
+    }
+
 public:
     size_t Line() const {
         return m_state->Line();
@@ -239,6 +243,30 @@ protected:
         return *CurPos();
     }
 
+    char CurCharAndAdvance() {
+        auto ret = CurChar();
+        Advance();
+        return ret;
+    }
+
+    char NextChar() const {
+        auto next_pos = CurPos() + 1;
+        if (Eof(next_pos)) {
+            return 0;
+        }
+
+        return *next_pos;
+    }
+
+    char NextNextChar() const {
+        auto nn_pos = CurPos() + 2;
+        if (Eof(nn_pos)) {
+            return 0;
+        }
+
+        return *nn_pos;
+    }
+
     char LookAhead(const size_t offset = 1) const {
         return m_state->LookAhead(offset);
     }
@@ -251,12 +279,24 @@ protected:
         m_state->Advance();
     }
 
+    bool IsOctDigit(const char c) const {
+        return c >= '0' && c <= '7';
+    }
+
     bool IsDigit(const char c) const {
         return c >= '0' && c <= '9';
     }
 
+    bool IsHexDigit(const char c) const {
+        return (IsDigit(c) || (c >= 'A' && c <= 'F') || (c >= 'a' && c <= 'f'));
+    }
+
     bool IsLetter(const char c) const {
         return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
+    }
+
+    bool IsLetterOrDigit(const char c) const {
+        return IsLetter(c) || IsDigit(c);
     }
 
     bool IsWhitespace(const char c) const {
@@ -417,6 +457,10 @@ protected:
 
     void ErrorIfEof() const {
         m_state->ErrorIfEof();
+    }
+
+    char ToUpper(const char c) const {
+        return (c & ~0x20);
     }
 
 protected:
