@@ -128,9 +128,6 @@ public:
     Tokenizer(const char* begin, const char* end, const std::string& escapable_chars, const char escape_char)
 		: m_state(new TokenizerState(begin, end, escapable_chars, escape_char)) {}
 
-    Tokenizer(const std::string& str, const std::string& escapable_chars, const char escape_char)
-		: m_state(new TokenizerState(str.c_str(), str.c_str() + str.size(), escapable_chars, escape_char)) {}
-
     template <typename OtherType>
     Tokenizer(Tokenizer<OtherType>& nestedTokenizer)
 		: m_state(nestedTokenizer.m_state) {}
