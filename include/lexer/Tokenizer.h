@@ -144,7 +144,7 @@ public:
         return EmitToken();
     }
 
-    Token PeekToken() {
+    virtual Token PeekToken() {
         SaveState old_state(m_state);
         return NextToken();
     }
