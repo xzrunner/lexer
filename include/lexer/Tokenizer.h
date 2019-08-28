@@ -289,7 +289,7 @@ protected:
     }
 
     bool IsLetter(const char c) const {
-        return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
+        return (c >= 'a' && c <= 'z') || (c == '_') || (c >= 'A' && c <= 'Z');
     }
 
     bool IsLetterOrDigit(const char c) const {
