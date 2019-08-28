@@ -276,23 +276,23 @@ protected:
         m_state->Advance();
     }
 
-    bool IsOctDigit(const char c) const {
+    static bool IsOctDigit(const char c) {
         return c >= '0' && c <= '7';
     }
 
-    bool IsDigit(const char c) const {
+    static bool IsDigit(const char c) {
         return c >= '0' && c <= '9';
     }
 
-    bool IsHexDigit(const char c) const {
+    static bool IsHexDigit(const char c) {
         return (IsDigit(c) || (c >= 'A' && c <= 'F') || (c >= 'a' && c <= 'f'));
     }
 
-    bool IsLetter(const char c) const {
+    static bool IsLetter(const char c) {
         return (c >= 'a' && c <= 'z') || (c == '_') || (c >= 'A' && c <= 'Z');
     }
 
-    bool IsLetterOrDigit(const char c) const {
+    static bool IsLetterOrDigit(const char c) {
         return IsLetter(c) || IsDigit(c);
     }
 
