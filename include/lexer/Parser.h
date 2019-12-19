@@ -42,7 +42,6 @@ protected:
         throw ParserException(token.Line(), token.Column(), msg);
     }
 
-private:
     std::string ExpectString(const std::string& expected, const Token& token) const
 	{
         std::stringstream msg;
