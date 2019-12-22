@@ -395,11 +395,20 @@ protected:
         return end;
     }
 
-    const char* DiscardWhile(const std::string& allow) {
-		while (!Eof() && IsAnyOf(CurChar(), allow)) {
+    void DiscardWhile(const std::string& whitespace)
+    {
+		while (!Eof() && IsAnyOf(CurChar(), whitespace)) {
 			Advance();
 		}
-        return CurPos();
+    }
+
+    void DiscardComments(char flag)
+    {
+        if (CurChar() == flag) {
+            do {
+                Advance();
+            } while (CurChar() != '\n' && !Eof());
+        }
     }
 
     const char* DiscardUntil(const std::string& delims) {
