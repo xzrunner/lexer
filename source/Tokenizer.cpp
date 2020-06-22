@@ -133,6 +133,7 @@ void TokenizerState::Reset()
 void TokenizerState::ErrorIfEof() const
 {
 	if (Eof()) {
+        assert(0);
 		throw ParserException("Unexpected end of file");
 	}
 }

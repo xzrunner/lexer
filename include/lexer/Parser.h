@@ -31,6 +31,7 @@ protected:
     const Token& Expect(const TokenType mask, const Token& token) const
 	{
 		if (!Check(mask, token)) {
+			assert(0);
 			throw ParserException(token.Line(), token.Column(), ExpectString(TokenName(mask), token));
 		}
         return token;
@@ -39,6 +40,7 @@ protected:
     void Expect(const std::string& type_name, const Token& token) const
 	{
         const std::string msg = ExpectString(type_name, token);
+		assert(0);
         throw ParserException(token.Line(), token.Column(), msg);
     }
 
