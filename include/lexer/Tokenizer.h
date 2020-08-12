@@ -203,6 +203,10 @@ public:
         return m_state->Eof(ptr);
     }
 
+    const char* Begin() const  { return m_state->Begin(); }
+    const char* End() const    { return m_state->End(); }
+    const char* CurPos() const { return m_state->CurPos(); }
+
 public:
     size_t Line() const {
         return m_state->Line();
@@ -226,10 +230,6 @@ public:
 protected:
     size_t Offset(const char* ptr) const {
         return m_state->Offset(ptr);
-    }
-
-    const char* CurPos() const {
-        return m_state->CurPos();
     }
 
     char CurChar() const {
