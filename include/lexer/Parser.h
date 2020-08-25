@@ -31,7 +31,6 @@ protected:
     const Token& Expect(const TokenType mask, const Token& token) const
 	{
 		if (!Check(mask, token)) {
-			assert(0);
 			throw ParserException(token.Line(), token.Column(), ExpectString(TokenName(mask), token));
 		}
         return token;
