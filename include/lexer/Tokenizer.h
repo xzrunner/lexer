@@ -437,7 +437,7 @@ protected:
 			return CurPos();
 		}
 
-		while (!Eof() && !matchesPattern(pattern)) {
+		while (!Eof() && !MatchesPattern(pattern)) {
 			Advance();
 		}
 
